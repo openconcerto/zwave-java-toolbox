@@ -1,6 +1,8 @@
 # zwave-java-toolbox
 Java library and tools to control Z-Wave devices via a USB Z-Wave Controller.
+
 A MQTT bridge compatible with Home Assistant is provided.
+
 The code is compatible with Silicon Labs ZW0700 series chip  (Z-Stick 7 from Aeotec).
 
 ## The MQTT Z-Wave bridge
