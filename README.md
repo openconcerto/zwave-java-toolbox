@@ -1,7 +1,8 @@
 # zwave-java-toolbox
 Java library and tools to control Z-Wave devices via a USB Z-Wave Controller.
 
-A MQTT bridge compatible with Home Assistant is provided.
+A MQTT bridge compatible with [Home Assistant](https://www.home-assistant.io/) is provided. Unlike [
+Z-Wave JS](https://github.com/zwave-js), it is much more simple to use and **stable**.
 
 The code is compatible with Silicon Labs ZW0700 series chip  (Z-Stick 7 from Aeotec).
 
@@ -70,5 +71,34 @@ All you to need to send and receive commands is implemented.
 Z-Wave "magic constants" are provided in **ZWaveValues**.
 
 To build your own jar, see **JarPackager**. For development, all you need is included, [Eclipse](https://eclipse.org) configuration files are provided.
+
+## History
+After years using Fibaro products, I had to replace my Home Center because of a broken update. The recovery key didn't work, I had to find a reliable alternative.
+
+The Home Center is using a watchdog I was not able to disable, I built my own linux box with a USB Z-Wave controller (Z-Stick 7 from Aeotec), with open source code only in order to avoid previous issues. I tested a lot of platform, the best were [OpenHAL](https://www.openhab.org/) and [Home Assistant](https://www.home-assistant.io/).
+
+Technically they are badly written and the UI is a mess. Do we really need thousands of line of code, hundred of dependencies for an automation system? Of course, not.
+It's funny to see that openHAL is using technologies for (big) cloud services for home automation...
+
+So... seeing that openHAL Z-Wave was only working with old controllers, I switched to Home Assistant... which required a MQTT broker and a third party bridge to Z-Wave ([zwave-js](https://github.com/zwave-js)). What an efficient way to send and receive less than a hundred of bytes to a serial port!
+
+Unfortunately, it was not reliable, [zwave-js](https://github.com/zwave-js) randomly declared some nodes as "dead". A lot of users have this problem, every answers pointed to an harware bug. I decided to investigate.
+
+Some hundreds line of code later, it was clear that **the hardware was working well, it was just software bugs**.
+The Z-Wave MQTT bridge I wrote is **running for months without a single failure**.
+
+It's difficult to blame the team of zwave-js and openHAL, even if technical choices are bad, the Z-Wave protocol is not open, it's difficult to obtain documentation.
+What's more, the Z-Wave protocol has a lot of revisions, thousands of magic values. The protocol is not simple (by design). 
+
+Silicon Labs, the company behind the serial protocol is not very cooperative.
+To upgrade the USB controler or control it with a basic GUI requires to create an account and to download [Simplicity Studio](https://www.silabs.com/developers/simplicity-studio).
+
+
+
+
+
+
+
+
 
 
