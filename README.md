@@ -4,7 +4,8 @@ Java library and tools to control Z-Wave devices via a USB Z-Wave Controller.
 A MQTT bridge compatible with [Home Assistant](https://www.home-assistant.io/) is provided. Unlike [
 Z-Wave JS](https://github.com/zwave-js), it is much more simple to use and **stable**.
 
-The code is compatible with Silicon Labs ZW0700 series chip  (Z-Stick 7 from Aeotec).
+The code is compatible with Silicon Labs ZW0700 series chip  (Z-Stick 7 from Aeotec, 7.19 firmware) and requires Java 8 or newer.
+
 
 ## The MQTT Z-Wave bridge
 The MQTT bridge provided will expose Z-Wave switches as 2 topics.
@@ -38,6 +39,7 @@ java -jar zwave-mqqt.jar COM5 tcp://192.168.1.8:1883
 ```
 The bridge is a single class program, it's easy to tweak it for your needs.
 
+
 ## The Z-Wave simple toolbox
 As example of use of the libray, we provide a minimalistic tool to get and set values.
 
@@ -64,6 +66,7 @@ Windows : java -jar zwave-mqqt.jar COM5
 Linux :   java -jar zwave-toolbox.jar /dev/ttyUSB0 
 ```
 
+
 ## The Java API
 See **ZWaveSerialAPI** for implemented features.
 All you to need to send and receive commands is implemented.
@@ -71,6 +74,25 @@ All you to need to send and receive commands is implemented.
 Z-Wave "magic constants" are provided in **ZWaveValues**.
 
 To build your own jar, see **JarPackager**. For development, all you need is included, [Eclipse](https://eclipse.org) configuration files are provided.
+
+
+## Useful links and resources
+
+* [Z-Wave PC Controller 5.54 for Windows](https://code.organic/pc_controller-5.54.zip) : to configure your devices and update the firmware 
+* [Z-Wave Zniffer for Windows](https://code.organic/zniffer-4.64.zip) : to display logs of Z-Wave communication done with Z-Wave PC Controller
+* [Serial API programming guide](https://code.organic/INS12350.pdf)  version 23 : partial but useful to understant the serial API
+* [Firmware 7.19.2 for Aeotec Z-Stick 7](https://code.organic/zwave_ncp_serial_api_controller_BRD4206A_7.19.2.gbl) : use Z-Wave PC Controller / Settings / OTW Firmware Update
+
+## Contributing
+
+Feel free to report bugs on the Issues topic. Code contribution are welcome.
+
+Things that could be interesting to add :
+
+* add / remove nodes
+* firmware update
+* backup/restore of the USB controller
+
 
 ## History
 After years using Fibaro products, I had to replace my Home Center because of a broken update. The recovery key didn't work, I had to find a reliable alternative.
