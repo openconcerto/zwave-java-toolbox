@@ -69,6 +69,6 @@ All you to need to send and receive commands is implemented.
 
 Z-Wave "magic constants" are provided in **ZWaveValues**.
 
-To build your own jar, see **JarPackager**.
+To build your own jar, see **JarPackager**. For development, all you need is included, [Eclipse](https://eclipse.org) configuration files are provided.
 
 
