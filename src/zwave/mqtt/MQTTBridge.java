@@ -103,6 +103,8 @@ public class MQTTBridge {
 			options.setAutomaticReconnect(true);
 			options.setCleanSession(true);
 			options.setConnectionTimeout(10);
+			options.setKeepAliveInterval(60);
+
 			if (password != null) {
 				options.setPassword(password);
 			}
@@ -148,7 +150,7 @@ public class MQTTBridge {
 
 					final NodeProtocolInfo info = api.getNodeProtocolInfo(nodeId);
 
-					if (info.getGenericDeviceClass() == NodeProtocolInfo.GENERIC_TYPE_SWITCH_BINARY) {
+					if (info != null && info.getGenericDeviceClass() == NodeProtocolInfo.GENERIC_TYPE_SWITCH_BINARY) {
 
 						String manufacturer = "unknown manufacturer";
 						String model = "unknown model";
