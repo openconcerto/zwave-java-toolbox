@@ -101,6 +101,8 @@ public class JarPackager {
 		manifest.getMainAttributes().put(Attributes.Name.MAIN_CLASS, "zwave.ZWaveSerialAPI");
 		JarOutputStream out = new JarOutputStream(new FileOutputStream(jarFile), manifest);
 
+		
+		
 		// Compress the files
 		int nbFiles = filesToAdd.size();
 		for (int i = 0; i < nbFiles; i++) {
@@ -129,7 +131,7 @@ public class JarPackager {
 		Enumeration<JarEntry> entries = f.entries();
 		while (entries.hasMoreElements()) {
 			JarEntry e = entries.nextElement();
-			if (!e.getName().startsWith("META-INF")) {
+			if (!e.getName().startsWith("META-INF")  || e.getName().contains("Factory")) {
 
 				try {
 					out.putNextEntry(new JarEntry(e.getName()));
